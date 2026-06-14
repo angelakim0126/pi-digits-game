@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <meta name="theme-color" content="#0f0a2e">
+  <title>π Digits Challenge</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div id="app">
+    <!-- Home screen -->
+    <div id="home" class="screen">
+      <header class="home-header">
+        <h1>π Digits Challenge</h1>
+        <p class="subtitle">Master the digits of pi — all the way to 200</p>
+      </header>
+
+      <div class="stats-bar">
+        <div class="stat">
+          <span class="stat-label">Mastered</span>
+          <span class="stat-value"><span id="mastered-stat">0</span> / 200</span>
+        </div>
+        <div class="stat">
+          <span class="stat-label">Best Run</span>
+          <span class="stat-value" id="best-stat">0</span>
+        </div>
+      </div>
+
+      <div class="progress-bar" aria-label="Progress to 200 digits">
+        <div class="progress-fill" id="home-progress"></div>
+      </div>
+
+      <div class="mode-grid">
+        <button class="mode-btn" data-mode="learn">
+          <div class="mode-icon">📚</div>
+          <div class="mode-name">Learn</div>
+          <div class="mode-desc">Drill new chunks of 5</div>
+        </button>
+        <button class="mode-btn" data-mode="test">
+          <div class="mode-icon">🎯</div>
+          <div class="mode-name">Test</div>
+          <div class="mode-desc">Recall from memory</div>
+        </button>
+        <button class="mode-btn" data-mode="typeahead">
+          <div class="mode-icon">⌨️</div>
+          <div class="mode-name">Type-Ahead</div>
+          <div class="mode-desc">Guided practice</div>
+        </button>
+        <button class="mode-btn" data-mode="blanks">
+          <div class="mode-icon">❓</div>
+          <div class="mode-name">Fill Blanks</div>
+          <div class="mode-desc">Review with gaps</div>
+        </button>
+      </div>
+
+      <div class="settings-row">
+        <label><input type="checkbox" id="sound-toggle"> 🔊 Sound</label>
+        <button id="reset-btn" class="link-btn">Reset progress</button>
+      </div>
+    </div>
+
+    <!-- Game screen (shared by all modes) -->
+    <div id="game" class="screen hidden">
+      <div class="game-header">
+        <button class="back-btn" id="back-btn">← Home</button>
+        <div class="mode-title" id="game-mode-title"></div>
+        <div class="game-stat" id="game-stat-display"></div>
+      </div>
+      <div class="game-content" id="game-content"></div>
+      <div class="number-pad" id="number-pad">
+        <button data-digit="1">1</button><button data-digit="2">2</button><button data-digit="3">3</button>
+        <button data-digit="4">4</button><button data-digit="5">5</button><button data-digit="6">6</button>
+        <button data-digit="7">7</button><button data-digit="8">8</button><button data-digit="9">9</button>
+        <button data-digit="0" class="zero">0</button>
+      </div>
+    </div>
+
+    <canvas id="confetti-canvas" aria-hidden="true"></canvas>
+  </div>
+  <script src="app.js"></script>
+</body>
+</html>
